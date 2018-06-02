@@ -9,6 +9,6 @@ export class TaskService {
   constructor(private _http: HttpClient) { }
 
   getTasks():Observable<TaskModel[]>{
-    return this._http.get<TaskModel[]>("http://localhost:3000/api/tasks")
+    return this._http.get<TaskModel[]>("/api/tasks")
   }
 }
