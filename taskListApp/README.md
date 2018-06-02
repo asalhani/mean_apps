@@ -35,13 +35,21 @@ npm i -g nodemon
 
 - NodeJS:
   --> Server Port: 3000
-  --> run command: nodemon
+  --> run command: 
+  ```
+  nodemon
+  ````
 
 - Client (Angular)
   --> Port: 4200
-  --> run command: ng s --o
+  --> run command: 
+  ```
+  ng serve --proxy-config proxy.config.json
+  ```
+  
+ - Note: If NodeJS server is running on diffrent port than [3000], update file [proxy.config.json] in root angular folder
 
 
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License..
 
