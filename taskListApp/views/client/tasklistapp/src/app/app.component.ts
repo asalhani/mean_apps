@@ -6,18 +6,7 @@ import { TaskModel } from './models/task';
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
-export class AppComponent implements OnInit {
-
-  ngOnInit(): void {
-    this._taskService.getTasks().subscribe(result =>{
-      this.tasks = result;
-      console.log(this.tasks);
-    }, err=>{
-      console.error(err);
-    })
-  }
-  constructor(private _taskService: TaskService){  }
-  tasks: TaskModel[];
+export class AppComponent {
   title = 'app';
 
 }
