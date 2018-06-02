@@ -15,7 +15,7 @@ router.get('/tasks', function (req, res, next) {
 });
 
 // get single task
-router.get('/tasks/:id', function (req, res, next) {
+router.get('/task/:id', function (req, res, next) {
     db.tasks.findOne({ _id: mongojs.ObjectId(req.params.id) }, function (err, task) {
         if (err) {
             res.send(err);
@@ -40,4 +40,13 @@ router.post('/task', function (req, res, next) {
     }
 });
 
+// delete task
+router.delete('/task/:id', function (req, res, next) {
+    db.tasks.remove({ _id: mongojs.ObjectId(req.params.id) }, function (err, task) {
+        if (err) {
+            res.send(err);
+        }
+        res.json(task);
+    })
+});
 module.exports = router;
