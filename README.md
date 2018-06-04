@@ -1,3 +1,4 @@
+
 # mean_apps
 
 # Node Notes:
@@ -10,4 +11,6 @@
 
 - To run node.js script in chrome dev debugging:
 ``` node --inspect-brk <script_name> ```
+	[Open chrome dev tool](chrome://inspector)
+	Start debugging using chrome dev tools
 
