@@ -5,10 +5,10 @@ const yargs = require('yargs');
 const notes = require('./notes');
 
 const argv = yargs.argv;
-var command = process.argv[2];
+var command = argv._[0];
 // console.log('command: ', command);
 // console.log('process: ', process.argv);
-console.log('yargs: ', argv)
+// console.log('yargs: ', argv)
 
 switch (command) {
     case "add":
@@ -18,10 +18,20 @@ switch (command) {
         notes.getAll();
         break
     case "read":
-        notes.getNote("");
+    debugger;
+        var note = notes.getNote(argv.title);
+        if(note){
+            console.log(`Title: ${note.title}.`);
+            console.log(`Body: ${note.body}.`);
+        }
+        else {
+            console.log("note not found..");
+        }
         break;
     case "remove":
-        notes.removeNote('');
+    var noteRemoved = notes.removeNote(argv.title);
+    var message = noteRemoved ? 'note was removed' : 'note not found';
+    console.log(message);
         break;
     default:
         console.error(`command  ${command} not supported yet...`);
