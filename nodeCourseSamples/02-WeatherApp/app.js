@@ -1,5 +1,6 @@
-const request = require('request');
+
 const yargs = require('yargs');
+const geocode = require('./geocode/geocode.js')
 
 const argv = yargs.options({
     a: {
@@ -13,24 +14,19 @@ const argv = yargs.options({
     .alias('help', 'h')
     .argv;
 
-    console.log(argv);
+console.log(argv);
 
-    var encodedAddress = encodeURIComponent(argv.address);
+var result = geocode.getGeocodeAddress(argv.address, (errorMessage, results) => {
+    if (errorMessage) {
+        console.log(errorMessage);
+    } else {
+        console.log(JSON.stringify(results, undefined, 2));
+    }
+});
+// console.log(`Address: ${result.formatted_address}`);
+// console.log(`Location: lat: ${result.geometry.location.lat}, lng: ${result.geometry.location.lng}`)
+
+
+
     //console.log(encodedAddress);
 
-request({
-    url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`,
-    json: true
-}, (error, response, body) => {
-    if(error){
-        console.log("ERROR ==> Google Error", error);
-    } else if(body.status === 'ZERO_RESULTS'){
-        console.log('ERROR ==> Unable to find address');
-    } else if(body.status === 'OK') {
-         //console.log(JSON.stringify(body, undefined,3));
-    //console.log(JSON.stringify(response, undefined, 3));
-    console.log(`Address: ${body.results[0].formatted_address}`);
-    console.log(`Location: lat: ${body.results[0].geometry.location.lat}, lng: ${body.results[0].geometry.location.lng}`)
-    }
-   
-});
