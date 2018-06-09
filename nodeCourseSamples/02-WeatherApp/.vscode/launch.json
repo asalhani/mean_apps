@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/app.js","args": [
+            "program": "${workspaceFolder}/app-promise.js","args": [
               "-a '3668 Uthman Al Harqumi, As Sulimaniyah, Riyadh 12245 7751, Saudi Arabia'"
             ]
         }
