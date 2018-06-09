@@ -20,22 +20,8 @@ const argv = yargs.options({
 
 // console.log(argv);
 
-// using promisses
-geocode.getGeocodeAddressAsync("51212105415423154545454521215454")
-    .then((result => {
-        console.log(result);
-        debugger
-        return forecast.getTempretureAsync(result.lat, result.lng);
-    })).then((result) =>{
-        console.log(result);
-    }).catch((errorMessage) => {
-        console.log(errorMessage);
-    });
-
-
-
 // using callback
-/*
+
 var result = geocode.getGeocodeAddress(argv.address, (errorMessage, results) => {
     if (errorMessage) {
         console.log(errorMessage);
@@ -53,5 +39,5 @@ var result = geocode.getGeocodeAddress(argv.address, (errorMessage, results) => 
         });
     }
 });
-*/
+
 
