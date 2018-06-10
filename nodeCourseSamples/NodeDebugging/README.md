@@ -1,17 +1,17 @@
-Methode #1:
-To debug in chrome dev tool:
+#### Methode #1:
+To debug in chrome dev tool: <br/>
 
-01: run ```node --inspect-brk app.js```
-02: go to ```chrome://inspect ```
+1. run ```node --inspect-brk app.js``` 
+2. go to ```chrome://inspect ``` 
 
 ----------------------------------
 
-Methode #2:
-Using VS Code debugging
+#### Methode #2: <br/>
+Using VS Code debugging <br/>
 
-01- Create new debug profile (Node : Lunch a program)
-02- hit F5
-03- Update lunch.json file as following:
+1. Create new debug profile (Node : Lunch a program)
+2. hit F5 
+3. Update lunch.json file as following: 
 ```
 {
     "type": "node",
@@ -22,12 +22,11 @@ Using VS Code debugging
 }
 
 ```
+----------------------------------
 
------------------------------------
+#### Methode #3: Debug Node.js when running on nodemon <br/>
 
-Methode #3: Debug Node.js when running on nodemon
-
-01- Add new debug profile to lunch.json (Node: Attach to process) profile:
+1. Add new debug profile to lunch.json (Node: Attach to process) profile: 
 ```
  {
     "type": "node",
@@ -38,7 +37,7 @@ Methode #3: Debug Node.js when running on nodemon
 }
 ```
 
-02- Install nodemon ``` npm install -g nodemon ```
-03- Run app in nodemon: ``` nodemon --inspect-brk app.js ```
-04- Attach VS code to the process: F5 --> Choose "Attach to process" profile
+2. Install nodemon ``` npm install -g nodemon ``` 
+3. Run app in nodemon: ``` nodemon --inspect-brk app.js ``` 
+4. Attach VS code to the process: F5 --> Choose "Attach to process" profile 
 
